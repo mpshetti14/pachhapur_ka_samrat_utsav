@@ -1,0 +1,19 @@
+{
+  "name": "pachhapur-ka-samrat-utsav",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"tsx server/src/index.ts\" \"npm --prefix client run dev\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "lint": "npm run lint -w client",
+    "db:generate": "npm run prisma:generate -w server",
+    "db:migrate": "npm run prisma:migrate -w server",
+    "db:seed": "npm run prisma:seed -w server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
